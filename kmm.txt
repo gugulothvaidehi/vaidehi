@@ -1,0 +1,43 @@
+import random
+
+# Dictionary of responses
+responses = {
+    "hello": "Hi there, how can I help you?",
+    "how are you": "I'm good, thank you! How about you?",
+    "default": "Sorry, I didn't understand that.",
+    "bye": "Goodbye! Take care."
+}
+
+# Function to generate a response
+def respond(input_text):
+    input_text = input_text.lower()
+    
+    # Check for key phrases in the input and respond accordingly
+    if "hello" in input_text:
+        return responses["hello"]
+    elif "how are you" in input_text:
+        return responses["how are you"]
+    elif "bye" in input_text:
+        return responses["bye"]
+    else:
+        return responses["default"]
+
+# Main function to run the chatbot
+def main():
+    print("Welcome! Type 'bye' to exit.")
+    
+    while True:
+        user_input = input("You: ")
+        
+        # Exit the loop if user says 'bye'
+        if user_input.lower() == 'bye':
+            print(responses["bye"])
+            break
+        
+        # Generate and print response
+        bot_response = respond(user_input)
+        print("Bot:", bot_response)
+
+# Run the chatbot
+if __name__ == "__main__":
+    main()
